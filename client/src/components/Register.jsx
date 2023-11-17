@@ -5,7 +5,7 @@ function Register() {
     const navigate = useNavigate()
     const handleregister = async()=>{
         console.log('register')
-        fetch('http://localhost:4300/users/register',{
+        fetch('https://fsd-project-backend-5.onrender.com/users/register',{
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({

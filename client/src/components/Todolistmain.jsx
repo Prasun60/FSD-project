@@ -20,7 +20,7 @@ function Todolistmain() {
   const [editTaskId, setEditTaskId] = useState(-1);
 
   useEffect(() => {
-    fetch("http://localhost:4300/todos/" + userid).then((res) => {
+    fetch("https://fsd-project-backend-5.onrender.com/todos/" + userid).then((res) => {
       return res.json();
     }
     ).then((data) => {
@@ -53,7 +53,7 @@ function Todolistmain() {
       console.log("user id is" + userid);
       // taskList.splice(index, 1);
       // setTaskList([...taskList]);
-      fetch("http://localhost:4300/todos/" + userid +"/"+ taskList[index]._id, {
+      fetch("https://fsd-project-backend-5.onrender.com/todos/" + userid +"/"+ taskList[index]._id, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -82,7 +82,7 @@ function Todolistmain() {
   };
 
   const handlelogout = async () => {
-    fetch('http://localhost:4300/users/logout', {
+    fetch('https://fsd-project-backend-5.onrender.com/users/logout', {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     }).then(res => res.json())

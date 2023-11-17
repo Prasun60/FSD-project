@@ -30,7 +30,7 @@ const InputComponent = ({
     if (!!text && editTaskId < 1) {  // add case
 
       
-      fetch("http://localhost:4300/todos/"+userid, {
+      fetch("https://fsd-project-backend-5.onrender.com/todos/"+userid, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +66,7 @@ const InputComponent = ({
     let index = taskList.findIndex((obj) => obj.id === editTaskId);
     if (index > -1) {
 
-      fetch("http://localhost:4300/todos/"+userid +"/"+ taskList[index]._id, {
+      fetch("https://fsd-project-backend-5.onrender.com/todos/"+userid +"/"+ taskList[index]._id, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
