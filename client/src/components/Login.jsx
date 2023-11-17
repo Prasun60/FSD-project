@@ -20,7 +20,6 @@ function Login() {
             }
         }
     )
-
         navigate("/login")
     }
     return (

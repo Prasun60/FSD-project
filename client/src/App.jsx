@@ -14,17 +14,10 @@ function App() {
         <Route path="/" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/todolistmain/:userid" element={<Todolistmain/>} />
+        <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
     </Router>
-    
-    {/* <Register/> */}
-    {/* <Login /> */}
-    {/* <Todolistmain /> */}
-    
     </>
-
-    
-    
   );
 }
 

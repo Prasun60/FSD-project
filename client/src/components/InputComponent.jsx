@@ -13,18 +13,18 @@ const InputComponent = ({
     setText(event.target.value);
   };
 
-  const changeTaskWithEnterKey = (event) => {
-    if (event.key === "Enter" && !!event.target.value) {
-      setTaskList((taskList) => [
-        ...taskList,
-        {
-          id: taskList.slice(-1)[0] ? taskList.slice(-1)[0].id + 1 : 1,
-          name: event.target.value,
-        },
-      ]);
-      setText("");
-    }
-  };
+  // const changeTaskWithEnterKey = (event) => {
+  //   if (event.key === "Enter" && !!event.target.value) {
+  //     setTaskList((taskList) => [
+  //       ...taskList,
+  //       {
+  //         id: taskList.slice(-1)[0] ? taskList.slice(-1)[0].id + 1 : 1,
+  //         name: event.target.value,
+  //       },
+  //     ]);
+  //     setText("");
+  //   }
+  // };
 
   const changeTask = () => {
     if (!!text && editTaskId < 1) {  // add case
@@ -66,7 +66,7 @@ const InputComponent = ({
     let index = taskList.findIndex((obj) => obj.id === editTaskId);
     if (index > -1) {
 
-      fetch("http://localhost:4300/todos/"+userid + taskList[index]._id, {
+      fetch("http://localhost:4300/todos/"+userid +"/"+ taskList[index]._id, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
