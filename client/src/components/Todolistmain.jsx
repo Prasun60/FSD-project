@@ -1,18 +1,23 @@
 import React from 'react'
 import { useState,useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import InputComponent from "./InputComponent";
+
 
 function Todolistmain() {
 
     const [taskList, setTaskList] = useState(
         [  ]
       );
+
+      const {userid}=useParams()
+      console.log(userid)
     
       const [text, setText] = useState("");
       const [editTaskId, setEditTaskId] = useState(-1);
     
       useEffect(() => {
-        fetch("http://localhost:4300/todos/6554df07c1e5853ab55e1c2c").then((res) => {
+        fetch("http://localhost:4300/todos/"+userid).then((res) => {
           return res.json();
         }
         ).then((data) => {
@@ -42,7 +47,7 @@ function Todolistmain() {
         if (index > -1) {
           // taskList.splice(index, 1);
           // setTaskList([...taskList]);
-          fetch("http://localhost:4300/todos/6554df07c1e5853ab55e1c2c/" + taskList[index]._id, {
+          fetch("http://localhost:4300/todos/"+userid+ taskList[index]._id, {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
@@ -87,6 +92,7 @@ function Todolistmain() {
           setText={setText}
           taskList={taskList}
           setTaskList={setTaskList}
+          userid={userid}
         />
 
 

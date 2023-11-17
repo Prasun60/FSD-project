@@ -7,6 +7,7 @@ const InputComponent = ({
   setTaskList,
   text,
   setText,
+  userid
 }) => {
   const handleTextchange = (event) => {
     setText(event.target.value);
@@ -29,7 +30,7 @@ const InputComponent = ({
     if (!!text && editTaskId < 1) {  // add case
 
       
-      fetch("http://localhost:4300/todos/6554df07c1e5853ab55e1c2c", {
+      fetch("http://localhost:4300/todos/"+userid, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +66,7 @@ const InputComponent = ({
     let index = taskList.findIndex((obj) => obj.id === editTaskId);
     if (index > -1) {
 
-      fetch("http://localhost:4300/todos/6554df07c1e5853ab55e1c2c/" + taskList[index]._id, {
+      fetch("http://localhost:4300/todos/"+userid + taskList[index]._id, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

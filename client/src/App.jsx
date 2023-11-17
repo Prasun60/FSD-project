@@ -11,9 +11,9 @@ function App() {
     <>
     <Router>
       <Routes>
-        <Route path="/register" element={<Register/>} />
+        <Route path="/" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path="/todolistmain" element={<Todolistmain/>} />
+        <Route path="/todolistmain/:userid" element={<Todolistmain/>} />
       </Routes>
     </Router>
     

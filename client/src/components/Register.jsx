@@ -3,6 +3,25 @@ import { useNavigate } from 'react-router-dom'
 
 function Register() {
     const navigate = useNavigate()
+    const handleregister = async()=>{
+        console.log('register')
+        fetch('http://localhost:4300/users/register',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({
+                username:document.getElementById('username').value,
+                email:document.getElementById('email').value,
+                password:document.getElementById('password').value
+            })
+        }).then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            navigate("/todolistmain/"+data._id)
+        }
+        )
+
+        
+    }
     return (
         <div id="app" className="min-w-[400px] w-1/2 mx-auto mt-16">
       <div className="max-w-4xl bg-violet-500 p-4 rounded-lg shadow-lg ">
@@ -28,11 +47,14 @@ function Register() {
                         <p class="text-red-500 text-xs italic">Please choose a password.</p>
                 </div>
                 <div class="flex items-center justify-between">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button"  onClick={()=>navigate("/todolistmain")}>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button"  onClick={handleregister}>
                         Register
                     </button>
                     
+                    
+                    
                 </div>
+                <p className='text-xs mt-4'>Already have an Account? <a href='/login'>Go to Login Page</a></p>
             </form>
             <p class="text-center text-gray-500 text-xs">
                 &copy;2020 Acme Corp. All rights reserved.
