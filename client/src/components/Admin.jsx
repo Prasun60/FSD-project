@@ -1,11 +1,11 @@
-import React from 'react'
+
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import InputComponent from "./InputComponent";
 import { useNavigate } from 'react-router-dom'
 
 
-function Todolistmain() {
+function Admin() {
 
   const [taskList, setTaskList] = useState(
     []
@@ -20,7 +20,7 @@ function Todolistmain() {
   const [editTaskId, setEditTaskId] = useState(-1);
 
   useEffect(() => {
-    fetch("http://localhost:4300/todos/" + userid).then((res) => {
+    fetch("http://localhost:4300/admin/todos").then((res) => {
       return res.json();
     }
     ).then((data) => {
@@ -206,4 +206,4 @@ function Todolistmain() {
   )
 }
 
-export default Todolistmain
+export default Admin

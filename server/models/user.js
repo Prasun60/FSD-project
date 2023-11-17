@@ -8,6 +8,10 @@ const userSchema = new mongoose.Schema({
         trim: true,
         unique: true,
     },
+    role:{
+        type: String,  
+        default: "user",
+    },
     email:{
         type: String,  
         required: [true, "Email is required"],

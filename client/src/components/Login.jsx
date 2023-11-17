@@ -14,9 +14,14 @@ function Login() {
             })
         }).then(res=>res.json())
         .then(data=>{
-            // console.log(data._id)
+            console.log(data)
             if(data._id!=undefined){
-                navigate("/todolistmain/"+data._id)
+                if(data.role=='admin'){
+                    navigate("/admin")
+                }else{
+                    navigate("/todolistmain/"+data._id)
+                }
+                
             }
         }
     )
