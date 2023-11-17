@@ -21,7 +21,7 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-mongoose.connect('mongodb://127.0.0.1:27017/Todonotes')
+mongoose.connect('mongodb+srv://abhi:abcd@cluster0.o6xci3c.mongodb.net/')
 .then(() => {
     console.log("Connected to database");
 })
